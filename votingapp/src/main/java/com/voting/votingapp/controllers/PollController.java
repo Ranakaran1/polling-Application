@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import com.voting.votingapp.services.PollService;
 
 import jakarta.websocket.server.PathParam;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/polls")
 public class PollController {
@@ -25,6 +27,7 @@ public class PollController {
 
     @PostMapping
     public Poll createPoll(@RequestBody Poll poll) {
+        System.out.println(poll);
         return pollService.createPoll(poll);
     }
 
